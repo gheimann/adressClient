@@ -1,0 +1,32 @@
+<div>
+<input type="text" placeholder="Suchen ..." ng-model="searchText">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Nummer</th>
+				<th>Anrede</th>
+				<th>Nachname</th>
+				<th>Vorname</th>
+				<th>Email</th>
+				<th>Löschen</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="addresses in address  | orderBy: 'nachname' | filter: searchText">
+				<td><a ng-href="#/address/{{ addresses.id }}/edit" ng-bind="addresses.id"></a></td>
+				<td>{{ addresses.anrede }}</td>
+				<td>{{ addresses.nachname }}</td>
+				<td>{{ addresses.vorname }}</td>
+				<td>{{ addresses.email }}</td>
+				<td>
+				<a ng-href="#/delete/{{addresses.id}}">
+				</a>
+					<button  ng-click="deleteAddress(addresses)">
+						<span class="glyphicon glyphicon-pencil"></span>Löschen
+					</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<a ng-href="#/admin/address/new">Neue Adresse anlegen</a>
+</div>

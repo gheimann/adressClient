@@ -1,0 +1,38 @@
+<div>
+    <h3 ng-hide="isEditMode">Neue Adresse anlegen</h3>
+    <h3 ng-show="isEditMode">Adresse bearbeiten</h3>
+    <br>
+	<form name="addressForm" novalidate>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Nummer:</label> <input
+				type="text" ng-model="address.id" name="id" required
+				placeholder="Hier die Nummer eingeben">
+				<span ng-show="addressForm.id.$dirty && addressForm.id.$invalid">Bitte geben Sie eine Nummer ein.</span>
+				
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Anrede:</label> <input
+				type="text" ng-model="address.anrede" name="anrede" required
+				placeholder="Hier die Anrede eingeben">
+				<span ng-show="addressForm.anrede.$dirty && addressForm.anrede.$invalid">Bitte geben Sie eine Anrede ein.</span>
+				
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Vorname:</label> <input
+				type="text" ng-model="address.vorname" name="vorname" 
+				placeholder="Hier den Vorname eingeben" />
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Nachname:</label> <input
+				type="text" ng-model="address.nachname" name="nachname" 
+				placeholder="Hier den Nachnamen eingeben" />
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Email:</label> <input
+				type="email" ng-model="address.email" name="email"
+				placeholder="Hier die Email-Adresse eingeben" /><br>
+		</div>
+		<button ng-click="cancelAction()">Abbrechen</button>
+	    <button ng-click="submitAction()" ng-disabled="addressForm.$invalid">{{submitBtnLabel}}</button>
+</form>
+</div>
